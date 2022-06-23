@@ -3,9 +3,11 @@ import StackNav from './Src/Components/StackNav';
 
 
 
+
 const App = () => {
  return(
   <StackNav/>
+  // <RealmExpenseDB/>
   );
 };
 

@@ -8,6 +8,7 @@ import { incomes, expenses } from '../Components/types';
 import moment from 'moment';
 import UserPicker from '../Components/UserPicker';
 import Balance from '../Components/Balance';
+import RealmExpenseDB from '../Components/Realm';
 
 
 
@@ -46,7 +47,9 @@ console.log(Profile)
         renderItem={({ item }) =>
           <Card type="expense" date={converDate(item.date)} amount={item.amount} category={item.category} comments={item.comments} />
         } />
+        <RealmExpenseDB/>
     </SafeAreaView>
+    
   );
 }
 

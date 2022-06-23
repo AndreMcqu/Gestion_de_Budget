@@ -82,7 +82,7 @@ const Depenses = () => {
             onChangeText={handleChange('commenatire')}
             onBlur={handleBlur('commenatire')}
             value={values.commenatire} />
-          <Pressable style={AllStyles.button} onPress={handleSubmit} >
+          <Pressable style={AllStyles.button} onPress={handleSubmit}>
             <Text>Submit</Text>
           </Pressable>
         </View>

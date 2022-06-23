@@ -5,17 +5,17 @@ import {LineChart,} from "react-native-chart-kit";
 import { incomes } from '../../Components/types';
 import moment from 'moment';
 
-type Dateprops = {
+type Chartprops = {
   date: string;
+  
 }
 
 const BezierLine = () => {
     const converDate = (date: string): string => moment(date).format("DD/MM/YYYY");
-    const chartDate : Date = DATA[0].incomes.map((list: incomes) => {
+    const chartDate : Chartprops = DATA[0].incomes.map((list: incomes) => {
         return (
             {
                 date: list.date,
-
             }
         )
     })
@@ -25,7 +25,7 @@ const BezierLine = () => {
   <Text>Bezier Line Chart</Text>
   <LineChart
     data={{
-      labels: [converDate(chartDate)],
+      labels: [chartDate],
       datasets: [
         {
           data: [
