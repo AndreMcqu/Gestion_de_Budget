@@ -12,7 +12,7 @@ export type Balanceprops = {
 }
 
 const Balance = ({ invalues, outvalues }: Balanceprops) => {
-    console.log(invalues)
+    // console.log(invalues)
     // let revenu = values.amount
     // console.log(revenu)
     // let expense = values.expenses
@@ -20,11 +20,11 @@ const Balance = ({ invalues, outvalues }: Balanceprops) => {
     let openaccount = 0
     const increaseAmount = invalues.reduce((pV: number, cV: incomes) => pV + parseFloat(cV.amount.replace(/[€,]/g, '')), openaccount);
     const decreaseAmount = outvalues.reduce((pV: number, cV: expenses) => pV + parseFloat(cV.amount.replace(/[€,]/g, '')), openaccount);
-    console.log(increaseAmount)
-    console.log(decreaseAmount)
+    // console.log(increaseAmount)
+    // console.log(decreaseAmount)
 
     const calculate = increaseAmount - decreaseAmount;
-    console.log(typeof (calculate))
+    // console.log(typeof (calculate))
     const Format = calculate.toFixed(2);
     const FormatRevenu = increaseAmount.toFixed(2);
     const FormatExpenses = decreaseAmount.toFixed(2);

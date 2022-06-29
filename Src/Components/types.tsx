@@ -7,24 +7,24 @@ export type RootParamList = {
     nav: undefined;
 };
 
-export type data ={
+export type data = {
     _id: string,
     user: string,
-    incomes: incomes[],
-    expenses : expenses[],
+    incomes?: incomesprops[],
+    expenses?: expensesprops[],
 }
 
-export type incomes = {
-    date:string,
-    amount:string,
+export type incomesprops = {
+    date: string ,
+    amount: string,
     category: string,
     comments: string,
     _id_income: string,
 }
 
-export type expenses = {
-    date:string,
-    amount:string,
+export type expensesprops = {
+    date: string ,
+    amount: string,
     category: string,
     comments: string,
     _id_expense: string,

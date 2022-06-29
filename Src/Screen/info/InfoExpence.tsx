@@ -1,13 +1,13 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { incomes, expenses } from '../../Components/types';
+import { incomesprops, expensesprops } from '../../Components/types';
 import DATA from '../../Doc/data.json'
 import Card from '../../Components/Card';
 import moment from 'moment';
 
 type Arrayprops = {
-    inArray: incomes[];
-    outArray: expenses[];
+    inArray: incomesprops[];
+    outArray: expensesprops[];
 }
 
 type GlobalArrayprops = {
@@ -19,7 +19,7 @@ type GlobalArrayprops = {
 }
 const InfoExpence = ({ inArray, outArray }: Arrayprops) => {
     const converDate = (date: string): string => moment(date).format("DD/MM/YYYY");
-    const GlobalArray: GlobalArrayprops[] = inArray.map((list: incomes) => {
+    const GlobalArray: GlobalArrayprops[] = inArray.map((list: incomesprops) => {
         return (
             {
                 date: list.date,
@@ -29,7 +29,7 @@ const InfoExpence = ({ inArray, outArray }: Arrayprops) => {
                 _id: list._id_income,
             }
         )
-    }).concat(outArray.map((list: expenses) => {
+    }).concat(outArray.map((list: expensesprops) => {
         return (
             {
                 date: list.date,
@@ -40,20 +40,20 @@ const InfoExpence = ({ inArray, outArray }: Arrayprops) => {
             }
         )
     }))
-    console.log(GlobalArray)
+    // console.log(GlobalArray)
 
     return (
-            <FlatList
-        data={GlobalArray.sort(function(a, b){
-            const c = new Date(a)
-            const d = new Date(b)
-            
-            return c -d;
-        }).slice(5)}
-        maxToRenderPerBatch={5}
-        renderItem={({ item }) =>
-          <Card type="home" date={converDate(item.date)} amount={item.amount} category={item.category} comments={item.comments} />
-        } />
+        <FlatList
+            data={GlobalArray.sort(
+                (
+                    a: {date: string | number | Date}, 
+                    b: {date: string | number | Date},
+                ) =>new Date(b.date).getTime() - new Date(a.date).getTime(),
+            ).slice(5)}
+            maxToRenderPerBatch={5}
+            renderItem={({ item }) =>
+                <Card type="home" date={converDate(item.date)} amount={item.amount} category={item.category} comments={item.comments} />
+            } />
     )
 }
 
